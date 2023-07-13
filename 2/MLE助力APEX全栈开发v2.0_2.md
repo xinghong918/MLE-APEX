@@ -210,11 +210,3 @@ CREATE OR REPLACE MLE ENV xh_exports_env
 
 
 
-<style>
-tr:nth-child(even) {
-  background-color: #f6f8fa;
-}
-td{
-    min-width: 110px;
-}
-</style>
