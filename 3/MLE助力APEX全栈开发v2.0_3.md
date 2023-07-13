@@ -194,14 +194,8 @@ apex.env.P70_RESULT = result.score;
 
 这么长的文章，能看到这儿的，说明你已经对APEX+MLE多少有点感兴趣了😜 ，那么是不是有种跃跃欲试的感觉，这里附上[APEX + Server-Side JavaScript hands-on资料](https://shlayel.github.io/oracle-livelabs-apex/mle-javascript/index.html)，这个资料就是直接用原生的持久化MLE Module来实现的，您可以跟着上面一步步的说明一起来动手尝试下吧✌️！
 
-<style>
-tr:nth-child(even) {
-  background-color: #f6f8fa;
-}
-td{
-    min-width: 110px;
-}
-table{
-    font-size: small;
-}
-</style>
+
+
+
+
+
