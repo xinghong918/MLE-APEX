@@ -157,4 +157,12 @@ END;
 
 先带着这个疑问，我们下期接着聊...😁
 
+<style>
+tr:nth-child(even) {
+  background-color: #f6f8fa;
+}
+td{
+    min-width: 110px;
+}
 
+</style>
