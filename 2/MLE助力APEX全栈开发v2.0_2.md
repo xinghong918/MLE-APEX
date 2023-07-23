@@ -38,13 +38,13 @@ select * from your_table
 
 还是从JavaScript的hello world开始，对比看看，在APEX中如何执行呢？
 
-## `<span id="APEXSQLDRIVER">`在APEX的SQL Workshop中执行JavaScript代码
+## <span id="APEXSQLDRIVER">在APEX的SQL Workshop中执行JavaScript代码</span>
 
 APEX自带的SQL Workshop可以执行PL/SQL代码
 ![Alt text](images/06.png)
 
 现在Language的下拉则多了一个选项：**JavaScript(MLE)**
-无疑随着MLE将支持更多语言，以后的APEX也相应可以支持更多的作为开发语言`<br/>`
+无疑随着MLE将支持更多语言，以后的APEX也相应可以支持更多的作为开发语言 `<br/>`
 ![Alt text](images/07.png)
 
 上面只是一个简单的hello world，如果我们需要使用数据库查询的返回时呢？
@@ -139,14 +139,14 @@ Yes~! 这才是面向JS开发者的体验嘛，真的是太方便了！👍
 一切都看着很美好，但也许习惯了只在客户端使用JavaScript的朋友们不禁会来个灵魂拷问：到底什么样的场景下我需要在服务端执行JavaScript呢？有很多已经在客户端执行很多年了，似乎也没有什么问题呀❓
 
 + 为什么在服务端来执行JavaScript更好，原因如下：
-  - `<span style="text-decoration: underline;">`**服务端执行JavaScript更安全！**
-    这点不需要多说，相信大家都懂，JavaScript在客户端运行的安全性一直是JS的弱项一般的存在，而如果能在服务端执行JS，安全性大大提高，弥补了长久以来的安全性弱点。`<br><br>`
-  - `<span style="text-decoration: underline;">`**解锁了更多的使用场景**
-    比如，就以今天后面会跟大家展示的示例来说，在服务端生成二维码时，就可以实现在文档中嵌入二维码、在服务端发邮件时发送二维码图片等等。那些仅凭客户端无法做到的，现在都可以了✌️`<br><br>`
-  - `<span style="text-decoration: underline;">`**与其它平台对接选择更多了**
-    在做一些集成的时候，一般可能会提供一些常见语言的SDK，JS往往是其中之一，但一般不会提供PL/SQL的SDK，于是常常要在客户端来做这些实际是基于服务端的集成，并不合适也不安全。再比如，一些加密算法，也存在会提供主流开发语言的，但可能没有PL/SQL的，`<span style="display:none;">`但如果有些SDK中包含一些HTTP请求，那么仅在客户端执行，可能会遇到跨域等问题，以往遇到此情况我们可能通过代理、单独再启个服务端、甚至改写成PL/SQL等各种方式来曲线救国了。而现在这些就都可以直接在服务端运行了，集成变得更容易了！`<br><br>`
+  - <span style="text-decoration: underline;">**服务端执行JavaScript更安全！**</span><br>
+    这点不需要多说，相信大家都懂，JavaScript在客户端运行的安全性一直是JS的弱项一般的存在，而如果能在服务端执行JS，安全性大大提高，弥补了长久以来的安全性弱点。<br><br>
+  - <span style="text-decoration: underline;">**解锁了更多的使用场景**</span><br>
+    比如，就以今天后面会跟大家展示的示例来说，在服务端生成二维码时，就可以实现在文档中嵌入二维码、在服务端发邮件时发送二维码图片等等。那些仅凭客户端无法做到的，现在都可以了✌️<br><br>
+  - <span style="text-decoration: underline;">**与其它平台对接选择更多了**</span><br>
+    在做一些集成的时候，一般可能会提供一些常见语言的SDK，JS往往是其中之一，但一般不会提供PL/SQL的SDK，于是常常要在客户端来做这些实际是基于服务端的集成，并不合适也不安全。再比如，一些加密算法，也存在会提供主流开发语言的，但可能没有PL/SQL的，而现在这些就都可以直接在服务端运行了，集成变得更容易了！<br><br>
 
-## `<span id="useModule">`如何在APEX中使用第三方JS Module呢？
+## <span id="useModule">如何在APEX中使用第三方JS Module呢？</span>
 
 作为一个JavaScript开发者，经常是以Module的方式来引入JS库的，那么这些第三方的JS Module如何在APEX中引入呢？
 
@@ -157,7 +157,7 @@ Yes~! 这才是面向JS开发者的体验嘛，真的是太方便了！👍
 
 大概的步骤有如下几步：
 
-1. `<span id="createModule">`**数据库端通过PL/SQL创建MLE Module**
+1. <span id="createModule">**数据库端通过PL/SQL创建MLE Module**</span>
    比如叫*named_exports_module*
 
 ```sql
@@ -185,7 +185,7 @@ As
 /
 ```
 
-2. `<span id="createENV">`**创建MLE Module的环境变量。** 
+2. <span id="createENV">**创建MLE Module的环境变量。**</span>
    这一步主要是建立上一步所创建的Module和在JS要引入名之间的映射关系，一个环境变量可以包含有多个Modules
    ![APEX中设置MLE  Module的环境变量](images/16.png)
 
@@ -197,13 +197,12 @@ CREATE OR REPLACE MLE ENV xh_exports_env
              'jsModule' MODULE JSMODULE);
 ```
 
-3. `<span id="sessionENV">`**JS代码引入MLE Module，并指定是使用哪个#2步中所创建的MLE Module的环境变量**
-
+3. <span id="sessionENV">**JS代码引入MLE Module，并指定是使用哪个#2步中所创建的MLE Module的环境变量**</span>
    - 如果是在APEX的SQL Commands中，则直接在Environment的下拉中选择即可
      ![Alt text](images/17.png)
-   - 如果是要在APEX的某个具体应用里面的Process等处理中使用时，先在 `<span style="text-decoration: underline;">`*Shared Components > Security Attributes > Database Session (section) > MLE Environment* 中设置好使用哪个MLE Module的环境变量，只能选一个
+   - 如果是要在APEX的某个具体应用里面的Process等处理中使用时，先在 <span style="text-decoration: underline;">*Shared Components > Security Attributes > Database Session (section) > MLE Environment*</span> 中设置好使用哪个MLE Module的环境变量，只能选一个
      ![Alt text](images/18.png)
-4. `<span id="mleProcess">`**最后就可以直接在Process里面引入了** 
+4. <span id="mleProcess">**最后就可以直接在Process里面引入了**</span>
 
    ```js
    const {sum, different} = await import("namedExports");
@@ -213,3 +212,5 @@ CREATE OR REPLACE MLE ENV xh_exports_env
 当然，不使用持久性MLE Module，你也可以在APEX这边直接自己建一个存放Module的表，用来实现对Module进行自定义的管理、加载等工作，如果你想了解如何自定义实现，可以参考这个[APEX+MLE Demo](https://github.com/stefandobre/apex-mle-demo)，结合上面原生持久化MLE Module的介绍，你可以试着来将其改写成使用原生持久化MLE Module的方式😎，如果尝试过了还不知道怎么做，没关系～下期也会给出参考答案
 
 下一期，我们就来介绍几个APEX + MLE的实际用例演示
+
+
